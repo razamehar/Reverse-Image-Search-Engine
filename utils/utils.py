@@ -109,3 +109,22 @@ def evaluate_knn_retrieval(features_compressed, class_ids, knn_model, k=5):
     avg_recall = np.mean(recalls)
 
     return avg_precision, avg_recall
+
+
+def plot_images_for_streamlit(filenames, distances):
+    images = []
+    for filename in filenames:
+        images.append(mpimg.imread(filename))
+    fig = plt.figure(figsize=(12, 10))
+    columns = 4
+    for i, image in enumerate(images):
+        ax = fig.add_subplot(int(len(images) / columns + 1), columns, i + 1)
+        if i == 0:
+            ax.set_title("Query Image\n" + extract_classname_filename(filenames[i]))
+        else:
+            ax.set_title("Similar Image\n" + extract_classname_filename(filenames[i]) + "\nDistance: " + f"{distances[i]:.2f}")
+        ax.axis('off')
+        ax.imshow(image)
+    plt.tight_layout()
+    return fig
+
