@@ -1,14 +1,16 @@
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import streamlit as st
 import numpy as np
 from datetime import datetime
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
+from sklearn.decomposition import PCA
+
 from utils.utils import *
 from config.constants import N
-from sklearn.decomposition import PCA
 
 
 st.title("Reverse Image Search Engine")
@@ -42,7 +44,7 @@ knn_model, _, _ = apply_knn(features_to_use, n=N, metric=distance_metric)
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
-    #st.image(uploaded_file, caption="Query Image", use_container_width=True, width=150)
+    # st.image(uploaded_file, caption="Query Image", use_container_width=True, width=150)
 
     query_img_path = os.path.join(project_root, "temp_query.png")
     with open(query_img_path, "wb") as f:

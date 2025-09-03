@@ -1,4 +1,4 @@
-import sys
+'''import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.utils import *
@@ -30,4 +30,4 @@ distances, indices = knn_euc.kneighbors(custom_feature)
 
 similar_image_paths = [img_path] + [filenames[i] for i in indices[0][1:4]]
 
-plot_images(similar_image_paths, distances[0])
+plot_images(similar_image_paths, distances[0])'''

@@ -7,11 +7,13 @@ import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from numpy.linalg import norm
+
 from tensorflow.keras.preprocessing.image import ImageDataGenerator, load_img, img_to_array
 from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
 from tensorflow.keras.layers import Input, Dense, Dropout
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.models import Model
+
 from config.constants import *
 
 
@@ -127,4 +129,3 @@ def plot_images_for_streamlit(filenames, distances):
         ax.imshow(image)
     plt.tight_layout()
     return fig
-
